@@ -13,7 +13,8 @@ public class DemoTests {
 
     @BeforeMethod
     public void setUp(){
-
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterMethod
@@ -24,8 +25,7 @@ public class DemoTests {
     //TC 1 Existing Email and Password
     @Test
     public void loginSuccessTest() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         //Test Case Logic
         driver.get("https://deens-master.now.sh/login");
         driver.findElement(By.cssSelector("#email")).click();
